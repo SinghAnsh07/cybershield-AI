@@ -15,8 +15,8 @@ import pptx
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 
-PPT_PATH = Path("IDEA_Presentation_Format.pptx")
-OUTPUT_PPT_PATH = Path("IDEA_Presentation_Format.pptx")
+PPT_PATH = Path("CyberShield_AI_Behavioral_Anomaly_Detection.pptx")
+OUTPUT_PPT_PATH = Path("CyberShield_AI_Behavioral_Anomaly_Detection.pptx")
 
 
 def delete_slide(prs, index):
