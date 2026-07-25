@@ -112,15 +112,31 @@ class ReportGenerator:
         
         # Decorative top header block
         self.pdf.set_fill_color(15, 23, 42)
-        self.pdf.rect(0, 0, 210, 45, "F")
-        self.pdf.set_y(12)
+        self.pdf.rect(0, 0, 210, 48, "F")
+        self.pdf.set_y(10)
         self.pdf.set_font("Helvetica", "B", 22)
         self.pdf.set_text_color(248, 250, 252)
         self.pdf.cell(0, 10, "CyberShield AI: Behavioral Anomaly Detection", new_x="LMARGIN", new_y="NEXT", align="C")
         self.pdf.set_font("Helvetica", "", 12)
         self.pdf.set_text_color(148, 163, 184)
         self.pdf.cell(0, 8, "End-to-End Production ML System Architecture & Evaluation Report", new_x="LMARGIN", new_y="NEXT", align="C")
-        self.pdf.set_y(52)
+        self.pdf.set_y(53)
+
+        # Prominent GitHub Repository Callout Box
+        repo_url = "https://github.com/SinghAnsh07/cybershield-AI"
+        self.pdf.set_fill_color(238, 242, 255)  # Soft indigo background
+        self.pdf.set_draw_color(99, 102, 241)   # Indigo border
+        self.pdf.set_line_width(0.5)
+        self.pdf.rect(12, 53, 186, 18, "DF")
+        
+        self.pdf.set_y(55)
+        self.pdf.set_font("Helvetica", "B", 10)
+        self.pdf.set_text_color(30, 27, 75)
+        self.pdf.cell(0, 6, "FULL CODEBASE & REPOSITORY LINK:", new_x="LMARGIN", new_y="NEXT", align="C")
+        self.pdf.set_font("Helvetica", "B", 10.5)
+        self.pdf.set_text_color(79, 70, 229)
+        self.pdf.cell(0, 6, repo_url, new_x="LMARGIN", new_y="NEXT", align="C", link=repo_url)
+        self.pdf.ln(5)
 
         # Executive Summary
         self._add_section_heading("Executive Summary", "1")
@@ -132,7 +148,8 @@ class ReportGenerator:
             "with ultra-low false-positive rates."
         )
         self._add_paragraph(
-            "The architecture integrates a 10-field synthetic log generator, a hybrid Baseline Profiler "
+            "The complete production codebase is available open-source at the repository link above. "
+            "It includes a 10-field synthetic log generator, a hybrid Baseline Profiler "
             "(Mahalanobis Distance + PyTorch Autoencoder), a sequence-aware Bidirectional LSTM anomaly detector "
             "with Focal Loss, a multi-class XGBoost attack classifier with SMOTE oversampling, a SHAP explainability "
             "layer, an interactive Streamlit SOC dashboard, and a Kafka/Flink streaming blueprint."
